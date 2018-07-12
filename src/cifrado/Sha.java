@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
 /**
+ * Clase de cifrado SHA-1, SHA-256, SHA-512
  * @author Jorge Silva Borda
  */
 public class Sha {

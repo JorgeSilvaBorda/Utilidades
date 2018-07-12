@@ -3,7 +3,7 @@ package com;
 import java.util.Random;
 
 /**
- *
+ * Algoritmos de uso común
  * @author Jorge Silva Borda
  */
 public class Comunes {

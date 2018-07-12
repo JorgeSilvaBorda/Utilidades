@@ -13,6 +13,7 @@ import json.JSONException;
 import json.JSONObject;
 
 /**
+ * Clase para obtener indicadores económicos y de uso general en Chile
  * @author Jorge Silva Borda
  */
 public class Indicadores {
