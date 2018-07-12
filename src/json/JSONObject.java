@@ -1444,8 +1444,7 @@ public class JSONObject {
     @Override
     public String toString() {
 	try {
-	    //return this.toString(0);
-	    return this.toString(0).replace("},", "}," + System.getProperty("line.separator"));
+	    return this.toString(0);
 	} catch (JSONException e) {
 	    return null;
 	}
