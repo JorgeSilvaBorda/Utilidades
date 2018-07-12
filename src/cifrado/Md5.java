@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
 /**
- *
+ * Clase de cifrado MD5
  * @author Jorge Silva Borda
  */
 public class Md5 {

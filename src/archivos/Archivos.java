@@ -7,6 +7,7 @@ import java.io.IOException;
 import com.Parametros;
 
 /**
+ * Clase para el proceso de archivos.
  * @author Jorge Silva Borda
  */
 public class Archivos {

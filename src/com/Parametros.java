@@ -1,6 +1,7 @@
 package com;
 
 /**
+ * Clase que contiene todos los parámetros de uso del resto de las librerías
  * @author Jorge Silva Borda
  */
 public class Parametros {
