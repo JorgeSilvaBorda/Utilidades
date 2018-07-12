@@ -77,4 +77,30 @@ public class Archivos {
     public static int lineasArchivo(String rutaArchivo){
 	return lineasArchivo(new File(rutaArchivo));
     }
+    
+    /**
+     * Obtener la extensión de un archivo en caso de que tenga.
+     * @param archivo {@code File} - Archivo para obtener la extensión
+     * @return {@code String} - La extensión del archivo.
+     */
+    public String getExtension(File archivo) {
+	if (archivo.exists() && archivo.isFile()) {
+	    String comp[] = archivo.getName().split("\\.");
+	    if (comp.length <= 1 && comp != null) {
+		return null;
+	    } else {
+		return comp[comp.length - 1];
+	    }
+	}
+	return null;
+    }
+    
+    /**
+     * Obtener la extensión de un archivo en caso de que tenga.
+     * @param rutaArchivo {@code String} - La ruta del archivo para obtener la extensión
+     * @return {@code String} - La extensión del archivo.
+     */
+    public String getExtension(String rutaArchivo) {
+	return getExtension(new File(rutaArchivo));
+    }
 }
