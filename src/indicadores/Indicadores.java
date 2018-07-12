@@ -88,7 +88,7 @@ public class Indicadores {
      * Indice de Precios al Consumidor (IPC):	Valores desde 1928 hasta hoy.
      * Dólar acuerdo:	Valores desde 1988 hasta hoy.
      * Unidad Tributaria Mensual (UTM):	Valores desde 1990 hasta hoy.
-     * @see org.json.JSONArray
+     * @see json.JSONArray
      */
     public static JSONArray traerIndicadorTipo(String tipo) {
         String ruta = Parametros.RUTA_WEB_INDICADORES + tipo;

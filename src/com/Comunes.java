@@ -1,5 +1,10 @@
 package com;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Random;
 
 /**
@@ -59,5 +64,47 @@ public class Comunes {
      */
     public static int secuenciaNumeros(int largo) {
 	return Integer.parseInt(secuenciaNumerosString(largo));
+    }
+    
+    /**
+     * Serializa objetos y los escribe en disco.
+     * El objeto a serializar debe implementar la clase Serializable.
+     * @param o {@code Object} - El objeto a serializar.
+     * @param nombreArchivo {@code String} - el nombre del archivo que será escrito con el objeto.
+     * @return {@code boolean} - {@code True} si lo escribe, {@code False} Si no lo puede escribir.
+     * @see Serializable
+     */
+    public static boolean serializar(Object o, String nombreArchivo){
+	try{
+	    FileOutputStream fos = new FileOutputStream(nombreArchivo);
+	    ObjectOutputStream oos = new ObjectOutputStream(fos);
+	    oos.writeObject(oos);
+	    oos.close();
+	    return true;
+	}catch (IOException ex) {
+	    System.out.println("No se puede serializar el objeto");
+	    System.out.println(ex);
+	    return false;
+	}
+    }
+    
+    /**
+     * Desserializa un objeto en base a su ruta como archivo en disco.
+     * Normalmente se debe hacer un cast del objeto que se lee, puesto que todos los devueltos de esta función, son del tipo {@code Object}
+     * @param nombreArchivo {@code String} - La ruta del archivo a leer.
+     * @return {@code Object} - El objeto leído.
+     */
+    public static Object desSerializar(String nombreArchivo){
+	try{
+	    FileInputStream fis = new FileInputStream(nombreArchivo);
+	    ObjectInputStream ois = new ObjectInputStream(fis);
+	    Object o = ois.readObject();
+	    ois.close();
+	    return o;
+	}catch (Exception ex) {
+	    System.out.println("No se puede des serializar el objeto");
+	    System.out.println(ex);
+	    return null;
+	}
     }
 }
