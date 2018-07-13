@@ -13,6 +13,11 @@ import java.net.URL;
  */
 public class MetodosWeb {
     
+    /**
+     * Clase para conectar con una determinada URL
+     * @param ruta {@code String} - La URL a conectar.
+     * @return {@code String} - La respuesta web.
+     */
     private static String getWeb(String ruta){
 	try {
 	    URL url = new URL(ruta);
