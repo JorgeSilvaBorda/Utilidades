@@ -1,5 +1,7 @@
 package datos;
 
+import com.Parametros;
+import com.excepciones.ExcepcionConexion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -47,12 +49,22 @@ public class ConexionSQLServer {
     /**
      * Obtiene la conexión {@link java.sql.Connection} configurada para poder ejecutar las operaciones.
      * @return {@code Connection}. {@code null} En caso de que no se pueda instanciar la conexión.
+     * @throws com.excepciones.ExcepcionConexion
      */
-    public Connection getConexion(){
-	if(this.servidor == null || this.baseDatos == null || this.usuario == null || this.password == null){
-	    System.out.println("Debe instanciarse la clase previamente con los parámetros de conexión adecuados.");
-	    return null;
+    public Connection getConexion() throws ExcepcionConexion{
+	if(this.servidor == null){
+	    throw new ExcepcionConexion("Excepción al obtener la conexión." + Parametros.SEP + "El parámetro [servidor] no puede ser null.");
 	}
+	if(this.baseDatos == null){
+	    throw new ExcepcionConexion("Excepción al obtener la conexión." + Parametros.SEP + "El parámetro [baseDatos] no puede ser null.");
+	}
+	if(this.usuario == null){
+	    throw new ExcepcionConexion("Excepción al obtener la conexión." + Parametros.SEP + "El parámetro [usuario] no puede ser null.");
+	}
+	if(this.password == null){
+	    throw new ExcepcionConexion("Excepción al obtener la conexión." + Parametros.SEP + "El parámetro [password] no puede ser null.");
+	}
+	
 	try{
 	    String str = "jdbc:sqlserver://" + this.servidor + (this.puerto == -1 ? "" : ":" + Integer.toString(this.puerto)) + ";databaseName=" + this.baseDatos + ";user=" + this.usuario + ";password=" + this.password;
 	    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
