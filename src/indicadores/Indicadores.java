@@ -147,8 +147,7 @@ public class Indicadores {
      * @return {@code boolean} - {@code true} en caso de que el indicador exista. {@code false} en caso de que no exista.
      */
     private static boolean validarIndicador(String indicador) {
-	String[] indicadores = {"uf", "ivp", "dolar", "dolar_intercambio", "euro", "ipc", "utm", "imacec", "tpm", "libra_cobre", "tasa_desempleo", "bitcoin"};
-	for (String ind : indicadores) {
+	for (String ind : Parametros.INDICADORES) {
 	    if (indicador.trim().equals(ind)) {
 		return true;
 	    }
